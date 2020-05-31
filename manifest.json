@@ -1,0 +1,17 @@
+{
+	"background": {
+		"persistent": false,
+		"scripts": ["background.js"]
+	},
+	"browser_action": {
+		"default_title": "Twitter Suggest Follow Block"
+	},
+	"content_scripts": [ {
+		"js": ["content.js"],
+		"matches": ["https://twitter.com/*"]
+	} ],
+	"manifest_version": 2,
+	"name": "Twitter Suggest Follow Block",
+	"permissions": ["activeTab"],
+	"version": "2020.05.31"
+}
