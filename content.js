@@ -5,7 +5,9 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
 		
 		for(var i = 0; i < xs.length; i++)
 		{
-			if(xs[i].innerHTML.endsWith('がフォローしています'))
+			var s = xs[i].innerHTML;
+			if(s.endsWith('がフォローしています') ||
+				s.endsWith('がフォロー'))
 			{
 				xs[i].parentNode.
 					parentNode.
