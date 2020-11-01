@@ -16,7 +16,6 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
 					parentNode.
 					parentNode.
 					parentNode.
-					parentNode.
 					parentNode.style.display = 'none';
 			}
 		}
