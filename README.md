@@ -1,2 +1,3 @@
 # Twitter Suggest Follow Block
-Twitterの○○さんがフォローしていますを消すChrome拡張です
+Twitterのおすすめユーザを消すChrome拡張です  
+ついでにおすすめトピックも消します
