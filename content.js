@@ -1,14 +1,14 @@
 
 chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
 	document.addEventListener('DOMNodeInserted', function () {
-		var xs = document.getElementsByTagName('span');
 		
-		for(var i = 0; i < xs.length; i++)
+		var spans = document.getElementsByTagName('span');
+		for(var i = 0; i < spans.length; i++)
 		{
-			var s = xs[i].innerHTML;
+			var s = spans[i].innerHTML;
 			if(s == "おすすめユーザー" || s == "おすすめトピック")
 			{
-				var e = xs[i].parentNode.
+				var e = spans[i].parentNode.
 					parentNode.
 					parentNode.
 					parentNode.
@@ -21,6 +21,22 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
 					nexte = nexte.nextElementSibling;
 				}
 			}
+		}
+		
+		var times = document.getElementsByTagName('time');
+		for(var i = 0; i < times.length; i++)
+		{
+			if(times[i].dateSuccess) continue;
+			
+			var d = new Date(times[i].dateTime);
+			times[i].textContent =
+				("0000" + d.getFullYear()).slice(-4)  + "/" +
+				("00" + (d.getMonth() + 1)).slice(-2) + "/" +
+				("00" + d.getDate()).slice(-2)        + " " +
+				("00" + d.getHours()).slice(-2)       + ":" +
+				("00" + d.getMinutes()).slice(-2)     + ":" +
+				("00" + d.getSeconds()).slice(-2);
+			times[i].dateSuccess = true;
 		}
 	});
 });
